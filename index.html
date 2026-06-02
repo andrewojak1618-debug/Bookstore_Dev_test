@@ -1,35 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookstore</title>
     <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./assets/images/" />
-    <link rel="stylesheet" href="./assets/icons/" />
-    <link rel="stylesheet" href="./components/header.html" />
     <link rel="stylesheet" href="./css/molecules/books.css" />
     <link rel="stylesheet" href="./css/molecules/buttons.css" />
     <link rel="stylesheet" href="./css/molecules/footer.css" />
     <link rel="stylesheet" href="./css/molecules/impressum.css" />
     <link rel="stylesheet" href="./css/molecules/page-header.css" />
     <link rel="stylesheet" href="./css/molecules/share.css" />
-    <script src="js/script.js"></script>
+    <script src="./js/db.js" defer></script>
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
     <header class="page_header">
-      <button
-        class="page_header_menu"
-        type="button"
-        aria-controls="site-nav"
-        aria-expanded="false"
-        aria-label="Menü öffnen"
-      ></button>
+      <div class="page_header_brand">
+        <a class="page_header_logo" href="index.html">Bookstore</a>
+      </div>
       <nav class="page_header_nav" id="site-nav" aria-label="Hauptnavigation">
-        <a href="">Platzhalter</a>
-        <a href="">Platzhalter 2</a>
-        <a href="">Platzhalter 3</a>
+        <div class="page_header_links">
+          <a href="index.html">Start</a>
+          <a href="#books">B&uuml;cher</a>
+          <a href="#favorites">Favoriten</a>
+          <a href="#contact">Kontakt</a>
+        </div>
       </nav>
     </header>
+
+    <main class="books_page">
+      <section class="books_grid" id="books" aria-label="B&uuml;cher"></section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Bookstore</p>
+      <nav class="site-footer_nav" aria-label="Footer-Navigation">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </nav>
+    </footer>
   </body>
 </html>

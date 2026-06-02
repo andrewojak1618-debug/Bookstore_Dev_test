@@ -1,71 +1,55 @@
 .site-footer {
   align-items: center;
-  background: #090a12;
-  border-top: 1px solid rgba(39, 234, 245, 0.12);
-  display: grid;
-  column-gap: var(--space-md);
-  row-gap: 0.65rem;
-  grid-template-columns:
-    minmax(0, 1fr)
-    auto
-    auto
-    calc((var(--content-width) - 880px) / 2);
-  height: 152px;
-  padding: var(--space-md)
-    max(var(--page-padding), calc((100vw - var(--content-width)) / 2));
+  background: #0b333e;
+  border-bottom: 1px solid rgba(105, 215, 255, 0.32);
+  display: flex;
+  gap: 48px;
+  height: 128px;
+  justify-content: space-between;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.padding_container {
+  display: flex;
 }
 
 .site-footer p {
-  color: var(--color-text-muted);
-  font-size: 0.78rem;
+  color: #d8e8ec;
+  font-size: 16px;
+  font-weight: 700;
   margin: 0;
 }
 
+.site-footer_nav {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+}
+
 .site-footer a {
-  color: var(--color-text);
-  font-family: var(--font-label);
-  font-size: 0.78rem;
+  color: #d8e8ec;
+  font-size: 16px;
   font-weight: 700;
-  transition: color 180ms ease;
+  text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: var(--color-cyan);
-}
-
-.site-footer a:first-of-type {
-  grid-column: 2;
-  justify-self: start;
-}
-
-.site-footer a:last-of-type {
-  grid-column: 3;
-  justify-self: start;
+  color: #69d7ff;
 }
 
 @media (max-width: 720px) {
   .site-footer {
-    align-items: center;
-    gap: 0.65rem 1rem;
-    grid-template-columns: 1fr auto;
-    height: auto;
-    min-height: 0;
-    padding-bottom: 1.25rem;
-    padding-top: 1.25rem;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 24px;
+    margin-right: 24px;
+    max-width: calc(100% - 48px);
+    padding: 28px 0;
   }
 
-  .site-footer p {
-    grid-column: 1 / -1;
-    justify-self: start;
-  }
-
-  .site-footer a:first-of-type {
-    grid-column: 1;
-    justify-self: start;
-  }
-
-  .site-footer a:last-of-type {
-    grid-column: 2;
-    justify-self: start;
+  .site-footer_nav {
+    flex-wrap: wrap;
+    gap: 18px;
   }
 }

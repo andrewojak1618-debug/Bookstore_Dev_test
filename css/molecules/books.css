@@ -1,0 +1,144 @@
+.books_page {
+  padding: 64px 120px;
+}
+
+.books_grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.book_card {
+  background: #0b3b47;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.book_card_header {
+  border-bottom: 3px solid #69d7ff;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.book_card_title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.book_card_visual {
+  background: #104f5f;
+  border-bottom: 3px solid #69d7ff;
+  height: 172px;
+}
+
+.book_card_content {
+  padding: 24px 20px;
+}
+
+.book_card_actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.book_card_price {
+  color: #ff5a52;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.book_card_likes {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.book_card_meta {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.book_card_meta div {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+}
+
+.book_card_meta dt {
+  font-weight: 700;
+}
+
+.book_card_meta dd {
+  margin: 0;
+}
+
+.book_card_comments {
+  border-top: 3px solid #69d7ff;
+  padding: 20px;
+}
+
+.book_card_comments h3 {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+
+.book_comments_list {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+  margin: 0 0 16px;
+  max-height: 136px;
+  overflow-y: auto;
+  padding: 0 8px 0 0;
+}
+
+.book_comments_list li {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 112px 1fr;
+}
+
+.book_comment_name {
+  color: #c7d8dc;
+  font-weight: 700;
+}
+
+.book_comment_text {
+  color: #f0f7f9;
+}
+
+.book_comment_form {
+  display: flex;
+  gap: 12px;
+}
+
+.book_comment_input {
+  background: #104f5f;
+  border: 0;
+  border-bottom: 2px solid #69d7ff;
+  color: #f0f7f9;
+  flex: 1;
+  font: inherit;
+  padding: 12px;
+}
+
+.book_comment_input::placeholder {
+  color: #8eb0b8;
+}
+
+@media (max-width: 1100px) {
+  .books_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .books_page {
+    padding: 32px 24px;
+  }
+
+  .books_grid {
+    grid-template-columns: 1fr;
+  }
+}
