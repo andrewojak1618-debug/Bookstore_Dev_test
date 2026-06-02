@@ -115,7 +115,7 @@ function createBookCard(book) {
 
   [
     ['Author', book.author],
-    ['Erscheinungsjahr', book.publishedYear],
+    ['Jahr', book.publishedYear],
     ['Genre', book.genre],
   ].forEach(([label, value]) => {
     const row = document.createElement('div');
@@ -131,7 +131,10 @@ function createBookCard(book) {
   commentsTitle.textContent = 'Kommentare:';
   commentInput.type = 'text';
   commentInput.placeholder = 'Schreibe dein Kommentar ...';
-  commentInput.setAttribute('aria-label', `Kommentar zu ${book.name} schreiben`);
+  commentInput.setAttribute(
+    'aria-label',
+    `Kommentar zu ${book.name} schreiben`,
+  );
   commentButton.type = 'submit';
   commentButton.textContent = '\u27a4';
   commentButton.setAttribute('aria-label', 'Kommentar senden');
