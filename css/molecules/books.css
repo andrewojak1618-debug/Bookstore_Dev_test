@@ -3,15 +3,18 @@
 }
 
 .books_grid {
-  display: grid;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .book_card {
   background: #0b3b47;
   border-radius: 20px;
+  max-width: 340px;
   overflow: hidden;
+  width: 100%;
 }
 
 .book_card_header {
@@ -26,9 +29,26 @@
 }
 
 .book_card_visual {
+  align-items: flex-start;
   background: #104f5f;
   border-bottom: 3px solid #69d7ff;
-  height: 172px;
+  display: flex;
+  justify-content: center;
+  height: 212px;
+  padding: 20px;
+}
+
+.book_card_cover {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.book_card_image {
+  display: block;
+  max-height: 132px;
+  max-width: 160px;
+  object-fit: contain;
 }
 
 .book_card_content {
@@ -85,7 +105,7 @@
 
 .book_comments_list {
   display: grid;
-  gap: 14px;
+  gap: 24px;
   list-style: none;
   margin: 0 0 16px;
   max-height: 136px;
@@ -95,8 +115,7 @@
 
 .book_comments_list li {
   display: grid;
-  gap: 6px;
-  grid-template-columns: 112px 1fr;
+  gap: 4px;
 }
 
 .book_comment_name {
@@ -127,18 +146,8 @@
   color: #8eb0b8;
 }
 
-@media (max-width: 1100px) {
-  .books_grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media (max-width: 720px) {
   .books_page {
     padding: 32px 24px;
-  }
-
-  .books_grid {
-    grid-template-columns: 1fr;
   }
 }

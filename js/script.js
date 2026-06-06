@@ -65,7 +65,7 @@ function renderComments(list, comments) {
   list.scrollTop = list.scrollHeight;
 }
 
-function createBookCard(book) {
+function createBookCard(book, bookIndex) {
   const card = document.createElement('article');
   const title = document.createElement('h2');
   const header = document.createElement('div');
@@ -83,6 +83,9 @@ function createBookCard(book) {
   const commentForm = document.createElement('form');
   const commentInput = document.createElement('input');
   const commentButton = document.createElement('button');
+  const cover = document.createElement('div');
+  const coverImage = document.createElement('img');
+  const coverButton = document.createElement('button');
 
   card.className = 'book_card';
   header.className = 'book_card_header';
@@ -99,6 +102,9 @@ function createBookCard(book) {
   commentInput.className = 'book_comment_input';
   likeButton.className = 'like_button';
   commentButton.className = 'comment_button';
+  cover.className = 'book_card_cover';
+  coverImage.className = 'book_card_image';
+  coverButton.className = 'cover_toggle_button';
 
   title.textContent = book.name;
   price.textContent = formatPrice(book.price);
@@ -131,13 +137,39 @@ function createBookCard(book) {
   commentsTitle.textContent = 'Kommentare:';
   commentInput.type = 'text';
   commentInput.placeholder = 'Schreibe dein Kommentar ...';
-  commentInput.setAttribute(
-    'aria-label',
-    `Kommentar zu ${book.name} schreiben`,
-  );
+  commentInput.setAttribute('aria-label', `Kommentar zu ${book.name} schreiben`);
   commentButton.type = 'submit';
   commentButton.textContent = '\u27a4';
   commentButton.setAttribute('aria-label', 'Kommentar senden');
+
+  if (bookIndex === 0) {
+    let isBackCoverVisible = false;
+
+    coverImage.src = './assets/images/front_thesecret.jpg';
+    coverImage.alt = `Vorderseite von ${book.name}`;
+    coverButton.type = 'button';
+    coverButton.textContent = 'Rückseite';
+    coverButton.setAttribute('aria-pressed', 'false');
+
+    coverButton.addEventListener('click', () => {
+      isBackCoverVisible = !isBackCoverVisible;
+
+      if (isBackCoverVisible) {
+        coverImage.src = './assets/images/back_thesecret.jpg';
+        coverImage.alt = `Rückseite von ${book.name}`;
+        coverButton.textContent = 'Vorderseite';
+      } else {
+        coverImage.src = './assets/images/front_thesecret.jpg';
+        coverImage.alt = `Vorderseite von ${book.name}`;
+        coverButton.textContent = 'Rückseite';
+      }
+
+      coverButton.setAttribute('aria-pressed', String(isBackCoverVisible));
+    });
+
+    cover.append(coverImage, coverButton);
+    visual.append(cover);
+  }
 
   likeButton.addEventListener('click', () => {
     book.liked = !book.liked;
@@ -187,6 +219,6 @@ function createBookCard(book) {
   return card;
 }
 
-books.slice(0, 3).forEach((book) => {
-  booksGrid.append(createBookCard(book));
+books.slice(0, 3).forEach((book, bookIndex) => {
+  booksGrid.append(createBookCard(book, bookIndex));
 });

@@ -1,5 +1,6 @@
 .like_button,
-.comment_button {
+.comment_button,
+.cover_toggle_button {
   border: 0;
   cursor: pointer;
   font: inherit;
@@ -22,4 +23,16 @@
   color: #69d7ff;
   font-size: 28px;
   padding: 6px 0;
+}
+
+.cover_toggle_button {
+  background: #69d7ff;
+  border-radius: 8px;
+  color: #001b22;
+  font-size: 8px;
+  font-weight: 700;
+  margin-top: 0;
+  padding: 10px 14px;
+  text-align: center;
+  width: 72px;
 }

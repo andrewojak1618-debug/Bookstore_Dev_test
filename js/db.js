@@ -1,12 +1,12 @@
 let books = [
   {
-    name: 'Die Geheimnisse des Ozeans',
-    author: 'Clara Meer',
+    name: 'THE SECRET - Das Geheimnis',
+    author: 'Rhonda Byrne',
     likes: 1250,
     liked: true,
     price: 19.99,
-    publishedYear: 2018,
-    genre: 'Fantasy',
+    publishedYear: 2006,
+    genre: 'Sachbuch',
     comments: [
       {
         name: 'Leser123',
