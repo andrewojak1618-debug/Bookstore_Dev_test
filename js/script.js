@@ -1,5 +1,19 @@
 const booksGrid = document.querySelector('.books_grid');
 const storageKey = 'bookstore-card-state';
+const bookCovers = [
+  {
+    front: './assets/images/front_thesecret.jpg',
+    back: './assets/images/back_thesecret.jpg',
+  },
+  {
+    front: './assets/images/front_magicthesecret.jpg',
+    back: './assets/images/back_magicthesecret.jpg',
+  },
+  {
+    front: './assets/images/front_powerthesecret.jpg',
+    back: './assets/images/back_powerthesecret.jpg',
+  },
+];
 
 function loadSavedBooks() {
   try {
@@ -48,7 +62,7 @@ function createCommentItem(comment) {
   name.className = 'book_comment_name';
   text.className = 'book_comment_text';
   name.textContent = `[${comment.name}]`;
-  text.textContent = `: ${comment.comment}`;
+  text.textContent = comment.comment;
 
   item.append(name, text);
 
@@ -142,10 +156,12 @@ function createBookCard(book, bookIndex) {
   commentButton.textContent = '\u27a4';
   commentButton.setAttribute('aria-label', 'Kommentar senden');
 
-  if (bookIndex === 0) {
+  const bookCover = bookCovers[bookIndex];
+
+  if (bookCover) {
     let isBackCoverVisible = false;
 
-    coverImage.src = './assets/images/front_thesecret.jpg';
+    coverImage.src = bookCover.front;
     coverImage.alt = `Vorderseite von ${book.name}`;
     coverButton.type = 'button';
     coverButton.textContent = 'Rückseite';
@@ -155,11 +171,11 @@ function createBookCard(book, bookIndex) {
       isBackCoverVisible = !isBackCoverVisible;
 
       if (isBackCoverVisible) {
-        coverImage.src = './assets/images/back_thesecret.jpg';
+        coverImage.src = bookCover.back;
         coverImage.alt = `Rückseite von ${book.name}`;
         coverButton.textContent = 'Vorderseite';
       } else {
-        coverImage.src = './assets/images/front_thesecret.jpg';
+        coverImage.src = bookCover.front;
         coverImage.alt = `Vorderseite von ${book.name}`;
         coverButton.textContent = 'Rückseite';
       }
